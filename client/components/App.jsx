@@ -3,7 +3,7 @@ import Table from './Table.jsx';
 
 export default function App() {
   return (
-    <div>
+    <div className='container'>
       <Table />
     </div>
   );
