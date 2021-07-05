@@ -27,8 +27,8 @@ h2 {
   justify-content: space-between;
   width: 400px;
   height: 350px;
-  background-color: #0074D9;
-  border: 5px solid #0074D9;
+  background-color: rgb(0, 96, 128);
+  border: 5px solid rgb(0, 96, 128);
   border-radius: 5px;
 }
 
@@ -78,4 +78,15 @@ button:active {
 
 .player2 {
   color: #FF4136;
+}
+
+.winner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color:  #39CCCC;
+  background-color: rgb(100, 100, 100, 0.9);
+  border-radius: 5px;
+  padding: 20px;
 }
