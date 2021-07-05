@@ -11,7 +11,7 @@ function dropPiece(element, color, value) {
     var current = $(`.row${row}.${col}`);
     if (!($(current).hasClass('red') ^ $(current).hasClass('yellow'))) {
       $(current).addClass(color).val(value);
-      break;
+      return current[0];
     }
   }
 };
@@ -23,13 +23,12 @@ function checkRows(element, value) {
   for (var col = 0; col < 7; col++) {
     if ($(`.${row}.col${col}`).val() === value) {
       count++;
-      console.log(element, count);
     } else {
       count = 0;
     }
-    if (count === 4) break;
+    if (count === 4) return true;
   }
-  // return false;
+  return false;
 };
 
 function checkColumns(element, value) {

@@ -13,15 +13,15 @@ export default function App() {
       if (!winner) {
         if (!$(e.target).hasClass('yellow') && !$(e.target).hasClass('red')) {
           if (player === 1) {
-            dropPiece(e.target, 'yellow', '1');
-            if (checkRows(e.target, '1') || checkColumns(e.target, '1') || checkDiagonals(e.target, '1')) {
+            var element = dropPiece(e.target, 'yellow', '1');
+            if (checkRows(element, '1') || checkColumns(element, '1') || checkDiagonals(element, '1')) {
               setWinner(true);
             } else {
               setPlayer(2);
             }
           } else {
-            dropPiece(e.target, 'red', '2');
-            if (checkRows(e.target, '2') || checkColumns(e.target, '2') || checkDiagonals(e.target, '2')) {
+            var element = dropPiece(e.target, 'red', '2');
+            if (checkRows(element, '2') || checkColumns(element, '2') || checkDiagonals(element, '2')) {
               setWinner(true);
             } else {
               setPlayer(1);
