@@ -8,6 +8,10 @@ body {
   background-size: cover;
 }
 
+h2 {
+  color: #85144b;
+}
+
 .cell {
   width: 50px;
   height: 50px;
@@ -30,7 +34,33 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.yellow {
+  background-color: #FFDC00;
+}
+
+.red {
+  background-color: #FF4136;
+}
+
+button {
+  margin-top: 10px;
+  border: transparent;
+  background-color: #DDDDDD;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #AAAAAA;
+}
+
+button:active {
+  transform: translateY(3px);
 }
