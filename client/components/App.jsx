@@ -16,6 +16,7 @@ export default function App() {
             var element = dropPiece(e.target, 'yellow', '1');
             if (checkRows(element, '1') || checkColumns(element, '1') || checkDiagonals(element, '1')) {
               setWinner(true);
+              $('.winner').css({color: '#FFDC00'});
             } else {
               setPlayer(2);
             }
@@ -23,6 +24,7 @@ export default function App() {
             var element = dropPiece(e.target, 'red', '2');
             if (checkRows(element, '2') || checkColumns(element, '2') || checkDiagonals(element, '2')) {
               setWinner(true);
+              $('.winner').css({color: '#FF4136'});
             } else {
               setPlayer(1);
             }
