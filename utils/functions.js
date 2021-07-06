@@ -1,7 +1,7 @@
 const $ = require('jquery');
 
 function reset() {
-  $('.cell').removeClass('yellow red').val('0');
+  $('.cell').removeClass('yellow red').val('0').css({animation: ''});
 };
 
 function dropPiece(element, color, value) {
@@ -10,7 +10,7 @@ function dropPiece(element, color, value) {
   for (var row = 5; row >= 0; row--) {
     var current = $(`.row${row}.${col}`);
     if (!($(current).hasClass('red') ^ $(current).hasClass('yellow'))) {
-      $(current).addClass(color).val(value);
+      $(current).addClass(color).val(value).css({animation: 'fall 0.5s ease-out'});
       return current[0];
     }
   }
@@ -68,6 +68,7 @@ function checkDiagonals(element, value) {
   while(negRow >= 0 && negCol < 7) {
     if ($(`.row${negRow--}.col${negCol++}`).val() === value) {
       count++;
+      console.log(negRow, negCol);
     } else {
       count = 0;
     }

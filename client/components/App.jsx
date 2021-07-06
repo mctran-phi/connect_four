@@ -37,13 +37,12 @@ export default function App() {
 
     return () => $('.cell').off('click');
 
-  }, [player, rounds, tie]);
+  }, [player, winner, tie]);
 
   function handleReset() {
     setPlayer(1);
     setWinner(false);
     setTie(false);
-    setRounds(prev => prev);
     reset();
   };
 
