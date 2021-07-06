@@ -87,10 +87,19 @@ function checkDiagonals(element, value) {
   return false;
 };
 
+function checkTie() {
+  for (var col = 0; col < 7; col++) {
+    var element = $(`.row0.col${col}`);
+    if (element.val() === '' || element.val() === '0') return false;
+  }
+  return true;
+}
+
 module.exports = {
   reset: reset,
   dropPiece: dropPiece,
   checkRows: checkRows,
   checkColumns: checkColumns,
-  checkDiagonals, checkDiagonals
+  checkDiagonals, checkDiagonals,
+  checkTie: checkTie
 };

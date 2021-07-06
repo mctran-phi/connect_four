@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Table from './Table.jsx';
 import $ from 'jquery';
-import { reset, dropPiece, checkRows, checkColumns, checkDiagonals } from '../../utils/functions.js';
+import { reset, dropPiece, checkRows, checkColumns, checkDiagonals, checkTie } from '../../utils/functions.js';
 
 export default function App() {
   const [player, setPlayer] = useState(1);
   const [rounds, setRounds] = useState(1);
   const [winner, setWinner] = useState(false);
+  const [tie, setTie] = useState(false);
 
   useEffect(() => {
     $('.cell').click(e => {
-      if (!winner) {
+      if (!winner && !tie) {
         if (!$(e.target).hasClass('yellow') && !$(e.target).hasClass('red')) {
           if (player === 1) {
             var element = dropPiece(e.target, 'yellow', '1');
@@ -30,16 +31,18 @@ export default function App() {
             }
           }
         }
+        if (checkTie()) setTie(prev => !prev);
       }
     });
 
     return () => $('.cell').off('click');
 
-  }, [player, rounds]);
+  }, [player, rounds, tie]);
 
   function handleReset() {
     setPlayer(1);
     setWinner(false);
+    setTie(false);
     setRounds(prev => prev);
     reset();
   };
@@ -48,6 +51,7 @@ export default function App() {
     <div className='container'>
       <h2>Connect Four</h2>
       {winner && <div className='winner'>Player {player} Won!</div>}
+      {tie && <div className='tie'>Tie!</div>}
       <Table player={player}/>
       <div className='footer'>
         {player === 1 && <div>Turn: <span className='player1'>Player 1</span></div>}
