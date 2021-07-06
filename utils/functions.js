@@ -60,7 +60,7 @@ function checkDiagonals(element, value) {
     posCol++;
   }
 
-  while((negRow < 6 && negRow !== 5) && (negCol > 0 && negCol !== 6)) {
+  while((negRow < 6 && negRow !== 5) && (negCol > 0 && negCol !== 0)) {
     negRow++;
     negCol--;
   }
@@ -68,7 +68,6 @@ function checkDiagonals(element, value) {
   while(negRow >= 0 && negCol < 7) {
     if ($(`.row${negRow--}.col${negCol++}`).val() === value) {
       count++;
-      console.log(negRow, negCol);
     } else {
       count = 0;
     }
